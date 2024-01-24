@@ -9,16 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        List {
+            Section("Choose your view") {
+                NavigationLink {
+                    TeamsScreen()
+                } label: {
+                    Text("Teams Screen")
+                }
+
+                NavigationLink {
+                    PlayersScreen()
+                } label: {
+                    Text("Players Screen")
+                }
+            }
+            .buttonStyle(.plain)
         }
-        .padding()
+        .navigationTitle("Screens")
     }
 }
 
 #Preview {
-    ContentView()
+    NavigationStack {
+        ContentView()
+    }
 }

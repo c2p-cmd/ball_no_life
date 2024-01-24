@@ -11,7 +11,9 @@ import SwiftUI
 struct BallNoLieApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                ContentView()
+            }
         }
     }
 }
