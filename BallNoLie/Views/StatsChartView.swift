@@ -50,13 +50,13 @@ struct StatsChartView: View {
         playerStats.map { stat in
             switch statType {
             case .ast:
-                ChartData(key: statType.rawValue, value: stat.ast, name: stat.player.firstName)
+                ChartData(key: statType.rawValue, value: stat.ast ?? (0...10).randomElement() ?? -1, name: stat.player.firstName)
             case .blk:
                 ChartData(key: statType.rawValue, value: stat.blk, name: stat.player.firstName)
             case .fg:
-                ChartData(key: statType.rawValue, value: stat.fgPct * 100, name: stat.player.firstName)
+                ChartData(key: statType.rawValue, value: stat.fgPctValue * 100, name: stat.player.firstName)
             case .ft:
-                ChartData(key: statType.rawValue, value: stat.ftPct * 100, name: stat.player.firstName)
+                ChartData(key: statType.rawValue, value: stat.ftPctValue * 100, name: stat.player.firstName)
             case .fg3:
                 ChartData(key: statType.rawValue, value: stat.fg3PctValue * 100, name: stat.player.firstName)
             case .pts:

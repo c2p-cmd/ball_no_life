@@ -170,16 +170,16 @@ struct PlayerStats: Identifiable, Codable, Comparable {
         case turnover
     }
     
-    let ast: Int
+    let ast: Int?
     let blk: Int
     let dreb: Int
     let fg3Pct: Double?
     let fg3a: Int
     let fg3m: Int
-    let fgPct: Double
+    let fgPct: Double?
     let fga: Int
     let fgm: Int
-    let ftPct: Double
+    let ftPct: Double?
     let fta: Int
     let ftm: Int
     let id: Int
@@ -195,6 +195,14 @@ struct PlayerStats: Identifiable, Codable, Comparable {
     
     var fg3PctValue: Double {
         self.fg3Pct ?? Double(fg3m / fg3a)
+    }
+    
+    var fgPctValue: Double {
+        self.fgPct ?? Double(fgm / fga)
+    }
+    
+    var ftPctValue: Double {
+        self.ftPct ?? Double(ftm / fta)
     }
     
     static func < (lhs: PlayerStats, rhs: PlayerStats) -> Bool {

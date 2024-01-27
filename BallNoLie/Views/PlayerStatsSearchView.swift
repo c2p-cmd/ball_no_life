@@ -173,7 +173,9 @@ struct PlayerStatsSearchView: View {
                 DisclosureGroup {
                     VStack {
                         Section {
-                            listTile("Assists:", value: stat.ast.description)
+                            if let ast = stat.ast {
+                                listTile("Assists:", value: ast.description)
+                            }
                             listTile("Blocks:", value: stat.blk.description)
                             listTile("Steals:", value: stat.stl.description)
                         }
@@ -198,13 +200,13 @@ struct PlayerStatsSearchView: View {
                         Section("Points") {
                             listTile("Scored Points:", value: stat.pts.description)
                             
-                            let fieldGoals = "\(stat.fgm) / \(stat.fga) = \(stat.fgPct.formatted(.percent))"
+                            let fieldGoals = "\(stat.fgm) / \(stat.fga) = \(stat.fgPctValue.formatted(.percent))"
                             listTile("Field Goals:", value: fieldGoals)
                             
                             let fieldGoals3 = "\(stat.fg3m) / \(stat.fg3a) = \(stat.fg3PctValue.formatted(.percent))"
                             listTile("3 Pointers:", value: fieldGoals3)
                             
-                            let freeThrows = "\(stat.ftm) / \(stat.fta) = \(stat.ftPct.formatted(.percent))"
+                            let freeThrows = "\(stat.ftm) / \(stat.fta) = \(stat.ftPctValue.formatted(.percent))"
                             listTile("Free Throws:", value: freeThrows)
                         }
                         
