@@ -23,32 +23,35 @@
 
 <table>
 <tr>
-<td>
-      <img src="https://github.com/c2p-cmd/ball_no_life/main/Screenshots/ss1.PNG" alt="Screenshot 1" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+    <td>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/ball_no_life/main/Screenshots/ss1.PNG" alt="Screenshot 1" style="width: 100%; max-height: 600px; object-fit: contain;"/>
     </td>
     <td>
-      <img src="https://github.com/c2p-cmd/ball_no_life/main/Screenshots/ss2.PNG" alt="Screenshot 2" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/ball_no_life/main/Screenshots/ss2.PNG" alt="Screenshot 2" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+    </td>
+</tr>
+<tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/ball_no_life/main/Screenshots/ss3.PNG" alt="Screenshot 3" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+    </td>
+    <td>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/ball_no_life/main/Screenshots/ss4.PNG" alt="Screenshot 4" style="width: 100%; max-height: 600px; object-fit: contain;"/>
     </td>
 </tr>
 <tr>
 <td>
-      <img src="https://github.com/c2p-cmd/ball_no_life/main/Screenshots/ss3.PNG" alt="Screenshot 3" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/ball_no_life/main/Screenshots/chart1.PNG" alt="Chart 1" style="width: 100%; max-height: 600px; object-fit: contain;"/>
     </td>
     <td>
-      <img src="https://github.com/c2p-cmd/ball_no_life/main/Screenshots/ss4.PNG" alt="Screenshot 4" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/ball_no_life/main/Screenshots/chart2.PNG" alt="Chart 2" style="width: 100%; max-height: 600px; object-fit: contain;"/>
     </td>
 </tr>
 <tr>
-<td>
-      <img src="https://github.com/c2p-cmd/ball_no_life/main/Screenshots/chart1.PNG" alt="Chart 1" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+    <td>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/ball_no_life/main/Screenshots/chart3.PNG" alt="Chart 3" style="width: 100%; max-height: 600px; object-fit: contain;"/>
     </td>
     <td>
-      <img src="https://github.com/c2p-cmd/ball_no_life/main/Screenshots/chart2.PNG" alt="Chart 2" style="width: 100%; max-height: 600px; object-fit: contain;"/>
-    </td>
-      <img src="https://github.com/c2p-cmd/ball_no_life/main/Screenshots/chart3.PNG" alt="Chart 3" style="width: 100%; max-height: 600px; object-fit: contain;"/>
-    </td>
-    <td>
-      <img src="https://github.com/c2p-cmd/ball_no_life/main/Screenshots/chart4.PNG" alt="Chart 4" style="width: 100%; max-height: 600px; object-fit: contain;"/>
+      <img src="https://raw.githubusercontent.com/c2p-cmd/ball_no_life/main/Screenshots/chart4.PNG" alt="Chart 4" style="width: 100%; max-height: 600px; object-fit: contain;"/>
     </td>
 </tr>
 </table>
