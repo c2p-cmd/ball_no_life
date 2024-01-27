@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		008BC6A02B6525AF008F1019 /* PlayerStatsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008BC69F2B6525AF008F1019 /* PlayerStatsSearchView.swift */; };
+		008BC6A22B652CD3008F1019 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008BC6A12B652CD3008F1019 /* Extensions.swift */; };
+		008BC6A62B654FF9008F1019 /* StatsChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008BC6A52B654FF9008F1019 /* StatsChartView.swift */; };
 		00F073352B60F50C002F82CE /* BallNoLieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F073342B60F50C002F82CE /* BallNoLieApp.swift */; };
 		00F073372B60F50C002F82CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F073362B60F50C002F82CE /* ContentView.swift */; };
 		00F073392B60F50D002F82CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F073382B60F50D002F82CE /* Assets.xcassets */; };
@@ -32,6 +35,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		008BC69F2B6525AF008F1019 /* PlayerStatsSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStatsSearchView.swift; sourceTree = "<group>"; };
+		008BC6A12B652CD3008F1019 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		008BC6A52B654FF9008F1019 /* StatsChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsChartView.swift; sourceTree = "<group>"; };
 		00F073312B60F50C002F82CE /* BallNoLie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BallNoLie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F073342B60F50C002F82CE /* BallNoLieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallNoLieApp.swift; sourceTree = "<group>"; };
 		00F073362B60F50C002F82CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				00F073592B60F548002F82CE /* API */,
+				008BC6A12B652CD3008F1019 /* Extensions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -115,6 +122,8 @@
 			children = (
 				00F073642B610598002F82CE /* TeamsScreen.swift */,
 				00F073662B611E41002F82CE /* PlayersScreen.swift */,
+				008BC69F2B6525AF008F1019 /* PlayerStatsSearchView.swift */,
+				008BC6A52B654FF9008F1019 /* StatsChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,8 +200,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				00F0735B2B60F553002F82CE /* Models.swift in Sources */,
+				008BC6A62B654FF9008F1019 /* StatsChartView.swift in Sources */,
+				008BC6A22B652CD3008F1019 /* Extensions.swift in Sources */,
 				00F0735F2B61016C002F82CE /* NBAService.swift in Sources */,
 				00F073372B60F50C002F82CE /* ContentView.swift in Sources */,
+				008BC6A02B6525AF008F1019 /* PlayerStatsSearchView.swift in Sources */,
 				00F073352B60F50C002F82CE /* BallNoLieApp.swift in Sources */,
 				00F073652B610598002F82CE /* TeamsScreen.swift in Sources */,
 				00F0735D2B60F571002F82CE /* URLS.swift in Sources */,
