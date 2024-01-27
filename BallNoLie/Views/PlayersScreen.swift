@@ -12,6 +12,8 @@ struct PlayersScreen: View {
     @State private var page = 0
     @State private var searchText = ""
     
+    var onPlayerSelect: ((Player) -> Void)? = nil
+    
     var body: some View {
         VStack {
             switch progressState {
@@ -28,7 +30,8 @@ struct PlayersScreen: View {
                 dataView(value)
             }
         }
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Players ⛹🏼‍♂️")
+        .navigationBarTitleDisplayMode(.automatic)
         .onAppear {
             fetch(page: page, search: nil)
         }
@@ -37,69 +40,74 @@ struct PlayersScreen: View {
     @ViewBuilder
     func dataView(_ data: PlayerList) -> some View {
         List(data.data) { player in
-            HStack {
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text("\(player.firstName) \(player.lastName)")
-                        
-                        Spacer()
-                        
-                        Text("(\(player.position))")
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("\(player.firstName) \(player.lastName)")
+                    
+                    Spacer()
+                    
+                    Text("(\(player.position))")
+                        .foregroundStyle(.secondary)
+                }
+                HStack {
+                    if let team = player.team {
+                        Text(team.name)
                             .foregroundStyle(.secondary)
                     }
-                    HStack {
-                        Text(player.team.name)
-                            .foregroundStyle(.secondary)
+                    
+                    if let heightFeet = player.heightFeet, let heightInches = player.heightInches, let weight = player.weightPounds {
+                        Spacer()
                         
-                        if let heightFeet = player.heightFeet, let heightInches = player.heightInches, let weight = player.weightPounds {
-                            Spacer()
+                        VStack(alignment: .trailing) {
+                            Text("H: \(heightFeet.formatted(.number))' \(heightInches.formatted())")
+                                .foregroundStyle(.secondary)
                             
-                            VStack(alignment: .trailing) {
-                                Text("H: \(heightFeet.formatted(.number))' \(heightInches.formatted())")
-                                    .foregroundStyle(.secondary)
-                                
-                                Text("W: \(weight.formatted(.number))")
-                                    .foregroundStyle(.secondary)
-                            }
+                            Text("W: \(weight.formatted(.number))")
+                                .foregroundStyle(.secondary)
                         }
                     }
                 }
             }
+            .onTapGesture {
+                onPlayerSelect?(player)
+            }
         }
         .searchable(text: $searchText)
-        .listStyle(.grouped)
+        .listStyle(.inset)
         .refreshable {
-            if searchText.isEmpty == false {
-                fetch(page: page, search: searchText)
-            } else {
+            if searchText.isEmpty {
                 fetch(page: page, search: nil)
+            } else {
+                fetch(page: page, search: searchText)
             }
         }
         .onSubmit(of: .search) {
-            if searchText.isEmpty == false {
-                fetch(page: page, search: searchText)
-            } else {
+            if searchText.isEmpty {
                 fetch(page: page, search: nil)
+            } else {
+                fetch(page: page, search: searchText)
             }
         }
         
         HStack {
-            if data.meta.currentPage != 1 {
-                Button {
-                    withAnimation {
-                        page -= 1
+            if let currentPage = data.meta.currentPage {
+                if currentPage != 1 {
+                    Button {
+                        withAnimation {
+                            page -= 1
+                        }
+                        fetch(page: page, search: nil)
+                    } label: {
+                        Label((currentPage - 1).description, systemImage: "arrow.backward")
                     }
-                    fetch(page: page, search: nil)
-                } label: {
-                    Label((data.meta.currentPage - 1).description, systemImage: "arrow.backward")
                 }
-            }
-            
-            Button(data.meta.currentPage.description) {
                 
+                Button(currentPage.description) {
+                    
+                }
+                .allowsHitTesting(false)
+                .buttonStyle(.borderedProminent)
             }
-            .allowsHitTesting(false)
-            .buttonStyle(.borderedProminent)
             
             if let nextPage = data.meta.nextPage {
                 Button {
@@ -125,7 +133,7 @@ struct PlayersScreen: View {
                 let data = try await NBAService.shared.fetchAllPlayers(searchPrompt: searchText, page: page, perPage: perPage, cachePolicy: .reloadRevalidatingCacheData)
                 let sortedList = data.data.sorted { $0.firstName < $1.firstName }
                 progressState = .data(PlayerList(data: sortedList, meta: data.meta))
-                self.page = data.meta.currentPage
+                self.page = data.meta.currentPage ?? self.page
             } catch {
                 progressState = .error(error)
             }
@@ -134,5 +142,9 @@ struct PlayersScreen: View {
 }
 
 #Preview {
-    PlayersScreen()
+    NavigationStack {
+        PlayersScreen {
+            print($0.firstName)
+        }
+    }
 }

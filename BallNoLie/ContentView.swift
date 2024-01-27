@@ -22,6 +22,8 @@ struct ContentView: View {
                 } label: {
                     Text("Players Screen")
                 }
+                
+                NavigationLink("Players Stats", destination: PlayerStatsSearchView.init)
             }
             .buttonStyle(.plain)
         }
