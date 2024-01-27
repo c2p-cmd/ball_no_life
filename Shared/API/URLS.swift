@@ -16,7 +16,7 @@ enum URLS {
     }
     
     static func players(page: Int = 0, perPage: Int = 25, searchPrompt: String?) -> URL {
-        var playersUrl = base.appending(path: "players")
+        let playersUrl = base.appending(path: "players")
         var items = [
             URLQueryItem(name: "page", value: page.description),
             URLQueryItem(name: "per_page", value: perPage.description)
@@ -48,15 +48,35 @@ enum URLS {
         return url
     }
     
-    static func playersStats(seasons: [Int]?, playerIds: [Int]) -> URL {
+    static func playersStats(
+        page: Int = 0,
+        perPage: Int = 75,
+        seasons: [Int]?,
+        playerIds: [Int],
+        startDate: String?,
+        endDate: String?
+    ) -> URL {
         var url = base.appending(path: "stats")
-        var queryItems = [URLQueryItem]()
+        var queryItems = [
+            URLQueryItem(name: "page", value: page.description),
+            URLQueryItem(name: "per_page", value: perPage.description)
+        ]
         
         seasons?.forEach { season in
             queryItems.append(URLQueryItem(name: "seasons[]", value: season.description))
         }
         
-        queryItems.append(contentsOf: playerIds.map { URLQueryItem(name: "player_ids[]", value: $0.description) })
+        playerIds.forEach { playerId in
+            queryItems.append(URLQueryItem(name: "player_ids[]", value: playerId.description))
+        }
+        
+        if let startDate {
+            queryItems.append(URLQueryItem(name: "start_date", value: startDate))
+        }
+        
+        if let endDate {
+            queryItems.append(URLQueryItem(name: "end_date", value: endDate))
+        }
         
         if queryItems.isEmpty == false {
             url.append(queryItems: queryItems)
